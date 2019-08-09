@@ -1,0 +1,21 @@
+<div class="card-columns bg-custom2">
+  <% @cocktails.each_with_index do |cocktail, i| %>
+    <div class="card shadow-lg bg-custom1">
+      <%= image_tag "rando_cocktail.jpg", alt: "Card image cap", class: "card-img-top" %>
+      <div class="card-body bg-custom1">
+        <h5 class="card-title text-center">
+          <%= link_to cocktail[:name], cocktail_path(cocktail) %>
+        </h5>
+        <p class="card-text">
+          <ul>
+            <% @ingredients[i].each do |ingr| %>
+              <li>
+                <%= ingr[:name] %>
+              </li>
+            <% end %>
+          </ul>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>

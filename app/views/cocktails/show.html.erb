@@ -1,0 +1,22 @@
+  <div class="card-columns">
+    <div class="card">
+      <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title text-center">
+          <%= @cocktail[:name] %>
+        </h5>
+        <p class="card-text">
+          <ul>
+            <% @doses.each_with_index do |d, i| %>
+              <li>
+                <%= d[:description] %> of <%= @ingredients[i][:name] %> <%= link_to 'Delete', dose_path(d), method: :delete, class: 'btn btn-danger btn-sm' %>
+              </li>
+            <% end %>
+          </ul>
+        </p>
+      </div>
+      <div class="card-footer text-center">
+          <%= link_to 'Add dose', new_cocktail_dose_path(@cocktail), class: "btn btn-success btn-sm btn-block" %>
+      </div>
+    </div>
+  </div>

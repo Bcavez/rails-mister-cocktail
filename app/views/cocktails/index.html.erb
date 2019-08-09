@@ -1,8 +1,8 @@
 <div class="card-columns bg-custom2">
   <% @cocktails.each_with_index do |cocktail, i| %>
     <div class="card shadow-lg bg-custom1">
-      <%= image_tag "rando_cocktail.jpg", alt: "Card image cap", class: "card-img-top" %>
-      <div class="card-body bg-custom1">
+      <%= cl_image_tag cocktail.photo, width: 400, height: 300, crop: :fill, alt: "#{cocktail[:name]}", class: "card-img" %>
+      <div class="card-img-overlay">
         <h5 class="card-title text-center">
           <%= link_to cocktail[:name], cocktail_path(cocktail) %>
         </h5>
